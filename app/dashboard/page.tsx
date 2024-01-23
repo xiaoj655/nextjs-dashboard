@@ -5,6 +5,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '../lib/data';
 import { Suspense } from 'react'
 import { RevenueChartSkeleton } from '../ui/skeletons';
+import { LatestInvoicesSkeleton } from '../ui/skeletons';
  
 export default async function Page() {
   // const revenue = await fetchRevenue();
@@ -31,7 +32,9 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChart />
         </Suspense>
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <Suspense fallback={<LatestInvoicesSkeleton />}>
+          <LatestInvoices latestInvoices={latestInvoices} />
+        </Suspense>
       </div>
     </main>
   );
