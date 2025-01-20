@@ -4,6 +4,8 @@ const shimmer =
 
 export function CardSkeleton() {
   return (
+    <>
+    {Array.from({length: 4}).map(()=>(
     <div
       className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm`}
     >
@@ -15,6 +17,8 @@ export function CardSkeleton() {
         <div className="h-7 w-20 rounded-md bg-gray-200" />
       </div>
     </div>
+    ))}
+    </>
   );
 }
 
